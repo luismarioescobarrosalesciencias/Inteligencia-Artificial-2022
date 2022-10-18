@@ -143,10 +143,9 @@ def best_first_search(destino,origen,costos):
 
     return ruta
 r = best_first_search("Coyoacan","Lazaro Cardenas",estimated_cost)
+print("Algoritmo best first search")
 print(r) 
 
-#print(busca_destino("Observatorio"))
-#print(aux["Observatorio"])
 def astar(origen,destino):
     openList =  set([origen])
     closed = set()
@@ -192,6 +191,7 @@ def astar(origen,destino):
                 
 
 r = astar("Lazaro Cardenas","Coyoacan")
+print("Algoritmo A*")
 print(r)
 
 #print()
