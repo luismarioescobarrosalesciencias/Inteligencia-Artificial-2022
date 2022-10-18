@@ -12,7 +12,7 @@
 10,Isabel la Católica,Salto del Agua,445
 11,Salto del Agua,Balderas,458
 12,Balderas,Cuauhtémoc,409
-13,Cuauhtémoc,Insurgentes,793
+13,Cuauhtemoc,Insurgentes,793
 14,Insurgentes,Sevilla,645
 15,Sevilla,Chapultepec,501
 16,Chapultepec,Juanacatlán,973
@@ -51,15 +51,15 @@
 49,Juárez,Balderas,659
 50,Balderas,Niños Héroes,665
 51,Niños Héroes,Hospital General,559
-52,Hospital General,Centro Médico,653
-53,Centro Médico,Etiopía/Plaza de la Transparencia,1119
-54,Etiopía/Plaza de la Transparencia,Eugenia,950
+52,Hospital General,Centro Medico,653
+53,Centro Medico,Etiopia,1119
+54,Etiopia,Eugenia,950
 55,Eugenia,División del Norte,715
 56,División del Norte,Zapata,794
 57,Zapata,Coyoacán,1153
-58,Coyoacán,Viveros/Derechos Humanos,908
-59,Viveros/Derechos Humanos,Miguel Ángel de Quevedo,824
-60,Miguel Ángel de Quevedo,Copilco,1295
+58,Coyoacán,Viveros,908
+59,Viveros,Miguel A de Quevedo,824
+60,Miguel A de Quevedo,Copilco,1295
 61,Copilco,Universidad,1306
 62,Santa Anita,Jamaica,758
 63,Jamaica,Fray Servando,1033
@@ -129,9 +129,9 @@
 127,Velódromo,Mixiuhca,821
 128,Mixiuhca,Jamaica,942
 129,Jamaica,Chabacano,1031
-130,Chabacano,Lázaro Cardenas,1000
-131,Lázaro Cardenas,Centro Médico,1059
-132,Centro Médico,Chilpancingo,1152
+130,Chabacano,Lazaro Cardenas,1000
+131,Lazaro Cardenas,Centro Medico,1059
+132,Centro Medico,Chilpancingo,1152
 133,Chilpancingo,Patriotismo,955
 134,Patriotismo,Tacubaya,1133
 135,Pantitlán,Agrícola Oriental,1409
