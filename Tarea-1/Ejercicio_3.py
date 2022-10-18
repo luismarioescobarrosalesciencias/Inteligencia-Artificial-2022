@@ -1,3 +1,18 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+TopologicalSort.py
+----------------
+Ejercicio 3 Busqueda ciega, topological sort
+
+Equipo:
+    - Anzaldúa Díaz Andrea Fernanda
+    - Escobar Rosales Luis Mario
+    - Garcia Toxqui Demian Oswaldo
+    - Padilla Lara Diego Javier
+"""
+
 class TopologicalSort(object):
 
     def __init__(self):

@@ -2,9 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-doscuartos_f.py
+Ejercicio_2.py
 ----------------
-Ejemplo de un entorno muy simple y agentes idem
+Ejercicio 2 Agentes
+
+Equipo:
+    - Anzaldúa Díaz Andrea Fernanda
+    - Escobar Rosales Luis Mario
+    - Garcia Toxqui Demian Oswaldo
+    - Padilla Lara Diego Javier
 """
 
 import entornos_f

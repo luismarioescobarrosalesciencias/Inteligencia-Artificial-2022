@@ -23,6 +23,8 @@
 \usepackage[font=footnotesize]{caption}
 \usepackage{graphicx}
 \graphicspath{{img/}}
+\usepackage{tikz}
+\usetikzlibrary{trees}
 
 % Colores
 \usepackage{xcolor}
@@ -96,6 +98,7 @@
     e información proporcionada en la página de \href{https://www.ferromex.com.mx/herramientas/tabla-de-distancias.jsp?eorigen=FXE_09699&edestino=FXE_00929&distancia=1799.9}{Ferromex} (además de unas consultas en Google), 
      tenemos la siguiente tabla de distancias entre estaciones de tren:
 
+    \vspace{3mm}
     \begin{center}
       \begin{tabular}{l l c}
         \textbf{Origen} & \textbf{Destino} & \textbf{Distancia (km)} \\
@@ -138,17 +141,60 @@
     \end{center}
   \end{itemize}
 
+  \vspace{3mm}
   A continuación tenemos la tabla de heurística, que generamos usando las distancias 
   por carretera arrojadas por Google Maps:
+
   \begin{center}
     \begin{tabular}{l l c}
       \textbf{Origen} & \textbf{Destino} & \textbf{Distancia (km)} \\
       \hline 
-      Monclova & Salina Cruz & 1644.2 \\ %ojo
-      Saltillo & Salina Cruz & 1566.3 \\ %ojo
-      Saltillo & Salina Cruz & 1566.3 \\ %ojo
+      Monclova & Salina Cruz & 1644.2 \\[2pt] %ojo
+      Saltillo & Salina Cruz & 1566.3 \\[2pt] %ojo
+      Monterrey & Salina Cruz & 1445.4 \\[2pt] %ojo
+      Escalón & Salina Cruz & 1890.9 \\[2pt] %ojo
+      Torreón & Salina Cruz & 1737.4 \\[2pt] %ojo
+      Durango & Salina Cruz & 1635.4 \\[2pt] %ojo
+      Felipe Pescador & Salina Cruz & 740.2 \\[2pt] %ojo
+      Querétaro & Salina Cruz & 939.5 \\[2pt] %ojo
+      Tampico & Salina Cruz & 928.1 \\[2pt] %ojo
+      Río Verde & Salina Cruz & 897.1 \\[2pt] %ojo
+      Ciudad de México & Salina Cruz & 739.9 \\[2pt] %ojo
+      Veracruz & Salina Cruz & 503.9 \\[2pt] %ojo
+      Medias Aguas & Salina Cruz & 236.2 \\[2pt] %ojo
     \end{tabular}
   \end{center}
+
+  \vspace{3mm}
+  Y ya con toda la información recabada se genera el siguiente árbol
+  \begin{center}
+  \begin{tikzpicture}
+    [
+      edge from parent fork down
+    ]
+    \node {Piedras Negras} [sibling distance = 2.5cm]
+        child {node {Monclova}} 
+        child {node [codegreen] {Saltillo}
+        child {node {Torreón}}
+        child {node [codegreen] {Monterrey}
+          child {node {Tampico}}
+          child {node [codegreen] {Río Verde}
+            child {node {Querétaro}}
+            child {node [codegreen] {Ciudad de México}
+              child {node {Veracruz}}
+              child {node [codegreen] {Medias Aguas}
+                child {node [codegreen] {Salina Cruz}}
+              }
+            }
+          }
+        }
+        child {node {Río Verde}}
+        child {node {Querétaro}}
+        }
+        child {node {Monterrey}};
+  \end{tikzpicture}
+  \end{center}
+
 \end{enumerate}
 
 \end{document}

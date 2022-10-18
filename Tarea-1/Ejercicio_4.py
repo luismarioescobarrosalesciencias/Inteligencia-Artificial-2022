@@ -1,13 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+'''
+Ejercicio_4.py
+----------------
+Ejercicio 4.2 Best First Search, A*
+
+Equipo:
+    - Anzaldúa Díaz Andrea Fernanda
+    - Escobar Rosales Luis Mario
+    - Garcia Toxqui Demian Oswaldo
+    - Padilla Lara Diego Javier
+'''
+
 from audioop import reverse
 from fileinput import close
 import pandas as pd
 import sys
 from collections import deque
 from math import sin, cos, sqrt, atan2, radians
-
-
-
-'''Ejercicio 4.2 Best First Search, A*'''
 
 
 df = pd.DataFrame()
