@@ -145,69 +145,6 @@ def best_first_search(destino,origen,costos):
 r = best_first_search("Coyoacan","Lazaro Cardenas",estimated_cost)
 print(r) 
 
-'''
-
-def Astar(origen, destino):
-    openL = set([origen])
-    close = set([])
-    g = {}
-    g[origen] = 0
-    vecinos = {}
-    vecinos[origen] = origen
-    while len(openL)>0 :
-        n = None
-    
-        #calculo de heuristica
-        for v in openL:
-            if n == None or g[v] + estimated_cost[v] < g[n] + estimated_cost[n]:
-                n=v
-                #print("hola")
-        if n ==None:
-            return None
-        #print(n)
-        if n == destino:
-            #print("Problema2")
-            reconstruir_camino=[]
-            while vecinos[n] != n:
-                reconstruir_camino.append(n)
-                n = vecinos[n]
-            reconstruir_camino.append(origen)
-            reconstruir_camino.reverse()
-            return reconstruir_camino
-
-        for tuplaC in  aux[n] :
-            #print(tuplaC)
-            m,costo = tuplaC[0],tuplaC[1]
-            print(m,costo)
-            print(openL)
-           # print("tupla",tuplaC)
-            if m in openL:
-                
-                print("algo anda mal")
-                print(openL)
-                return 
-            if m  not in openL and m not in close:
-                print("Okey")
-                openL.add(m)
-                vecinos[m] = n
-              #  print(costo)
-                g[m] = g[n]+ costo
-            else:
-                print("por obviedad")
-                if g[m]>g[n] +costo:
-                    g[m] = g[n] +costo
-                    vecinos[m] =n
-                    print("uno")
-                    if m in close:
-                        print("dos")
-                        close.remove(m)
-                        openL.add(m)
-        #print("problema")
-
-
-    openL.remove(n)
-    close.add(n)
-    return None'''
 #print(busca_destino("Observatorio"))
 #print(aux["Observatorio"])
 def astar(origen,destino):
