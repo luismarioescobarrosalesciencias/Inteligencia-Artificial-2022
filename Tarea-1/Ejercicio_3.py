@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-TopologicalSort.py
+Ejercicio_3.py
 ----------------
 Ejercicio 3 Busqueda ciega, topological sort
 
