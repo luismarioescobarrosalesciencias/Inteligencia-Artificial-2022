@@ -111,7 +111,7 @@ def mejor_seleccion(hijos,costos,ruta):
 
 
 
-def best_first_search(origen,destino,costos):
+def best_first_search(destino,origen,costos):
     ruta = [origen]
     encontrado = False
     guarda = origen
@@ -136,7 +136,7 @@ def best_first_search(origen,destino,costos):
 #print(busca_destino("Lazaro Cardenas"))
 #print(busca_destino("Lázaro Cárdenas"))
 #print(hijos["Lázaro Cardenas"])
-r = best_first_search("Lazaro Cardenas","Coyoacan",estimated_cost)
+r = best_first_search("Coyoacan","Lazaro Cardenas",estimated_cost)
 print(r) 
 
 
