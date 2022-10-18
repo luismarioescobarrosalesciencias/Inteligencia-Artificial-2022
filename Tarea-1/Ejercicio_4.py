@@ -1,4 +1,5 @@
 from audioop import reverse
+from fileinput import close
 import pandas as pd
 import sys
 from collections import deque
@@ -25,12 +26,14 @@ aux = {i:[] for i in metro}
 for i in result:
     aux[i[0]].append((i[1], i[2]))
 
-
+#diccionario con los hijos de los nodos 
 hijos ={j:[] for j in metro}
 
 for j in result:
     hijos[j[0]].append(j[1])
 
+
+#calcula la distancia de coordenadas geograficas
 def distances(point1,point2):
 # approximate radius of earth in km
     R = 6373.0
@@ -57,6 +60,8 @@ linea = dl['nombre'].tolist()
 linea = [*set(linea)]
 r1 = [(w,x,y,z) for  w,x,y,z in zip(dl['linea'],dl['nombre'], dl['lat'], dl['lon'])]
 
+
+#funcion que ayuda a ubicar los datos de una estacion (linea,nombre,lat,long)
 def busca_destino(nombre):
     cons = (None,None,None,None)
     for r in r1 :
@@ -75,7 +80,9 @@ for r in r1 :
 estimated_cost  = {}
 #lazaro = (cons[2],cons[3])
 obj =  busca_destino("Lazaro Cardenas")
-print(obj)
+#print(obj)
+
+
 #Tenemos ls costos estimados utilizando una formula que calcula las distancias entre puntos geograficos. En este caso de una estacion a Lazaro Cardenas 
 for k in coordenadas:
     if k not in estimated_cost :
@@ -95,6 +102,8 @@ def minimu(lista_hijos,cost):
     return nombre
 
 
+
+#funcion que elige el mejor nodo para continuar la ruta 
 def mejor_seleccion(hijos,costos,ruta):
     nombre = hijos[0]
     #en la lista de hijos rescatar, sus costos y quedarse con el de menor costo
@@ -133,15 +142,120 @@ def best_first_search(destino,origen,costos):
     ruta.reverse()
 
     return ruta
-#print(busca_destino("Lazaro Cardenas"))
-#print(busca_destino("Lázaro Cárdenas"))
-#print(hijos["Lázaro Cardenas"])
 r = best_first_search("Coyoacan","Lazaro Cardenas",estimated_cost)
 print(r) 
 
+'''
+
+def Astar(origen, destino):
+    openL = set([origen])
+    close = set([])
+    g = {}
+    g[origen] = 0
+    vecinos = {}
+    vecinos[origen] = origen
+    while len(openL)>0 :
+        n = None
+    
+        #calculo de heuristica
+        for v in openL:
+            if n == None or g[v] + estimated_cost[v] < g[n] + estimated_cost[n]:
+                n=v
+                #print("hola")
+        if n ==None:
+            return None
+        #print(n)
+        if n == destino:
+            #print("Problema2")
+            reconstruir_camino=[]
+            while vecinos[n] != n:
+                reconstruir_camino.append(n)
+                n = vecinos[n]
+            reconstruir_camino.append(origen)
+            reconstruir_camino.reverse()
+            return reconstruir_camino
+
+        for tuplaC in  aux[n] :
+            #print(tuplaC)
+            m,costo = tuplaC[0],tuplaC[1]
+            print(m,costo)
+            print(openL)
+           # print("tupla",tuplaC)
+            if m in openL:
+                
+                print("algo anda mal")
+                print(openL)
+                return 
+            if m  not in openL and m not in close:
+                print("Okey")
+                openL.add(m)
+                vecinos[m] = n
+              #  print(costo)
+                g[m] = g[n]+ costo
+            else:
+                print("por obviedad")
+                if g[m]>g[n] +costo:
+                    g[m] = g[n] +costo
+                    vecinos[m] =n
+                    print("uno")
+                    if m in close:
+                        print("dos")
+                        close.remove(m)
+                        openL.add(m)
+        #print("problema")
 
 
- 
+    openL.remove(n)
+    close.add(n)
+    return None'''
+#print(busca_destino("Observatorio"))
+#print(aux["Observatorio"])
+def astar(origen,destino):
+    openList =  set([origen])
+    closed = set()
+    g= {}
+    p = {}
+    g[origen] = 0
+    p[origen] = origen
+    while  len(openList) > 0 :
+        n = None
+        for v in openList:
+            #print(n)
+           # if v== None: print("rayos")
+            if n == None or g[v]+estimated_cost[v] < g[n] + estimated_cost[n]:
+                n=v
+        if n == destino or n not in aux or hijos[n] == None  :
+            pass
+        else:
+            for (m,costo) in aux[n]:
+                if m not in openList and m  not in closed:
+                    openList.add(m)
+                    p[m] = n
+                    g[m] = g[n] +costo
+                else:
+                    if g[m]>g[n]+costo:
+                        g[m] = g[n]+ costo
+                        p[m] = n
+                        if m in closed:
+                            closed.remove(m)
+                            openList.add(m)
+        if n == None:
+            return []
+        if n== destino:
+            camino = []
+            while p[n] != n:
+                camino.append(n)
+                n= p[n]
+            camino.append(origen)
+           # camino.reverse()
+            return camino
+        openList.remove(n)
+        closed.add(n)
+    return None
+                
+
+r = astar("Lazaro Cardenas","Coyoacan")
+print(r)
 
 #print()
 
